@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HUSTle</string>
+    
+    <!-- Common -->
+    <string name="loading">Đang tải...</string>
+    <string name="error_occurred">Đã xảy ra lỗi</string>
+    <string name="retry">Thử lại</string>
+    <string name="save">Lưu</string>
+    <string name="cancel">Hủy</string>
+    <string name="delete">Xóa</string>
+    <string name="edit">Sửa</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="no_data">Không có dữ liệu</string>
+    
+    <!-- Authentication -->
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="dont_have_account">Chưa có tài khoản?</string>
+    <string name="already_have_account">Đã có tài khoản?</string>
+    <string name="register_as">Đăng ký với vai trò</string>
+    <string name="applicant">Ứng viên</string>
+    <string name="hr_recruiter">Nhà tuyển dụng</string>
+    
+    <!-- Validation Messages -->
+    <string name="error_email_required">Vui lòng nhập email</string>
+    <string name="error_email_invalid">Email không hợp lệ</string>
+    <string name="error_password_required">Vui lòng nhập mật khẩu</string>
+    <string name="error_password_short">Mật khẩu phải có ít nhất 6 ký tự</string>
+    <string name="error_password_mismatch">Mật khẩu không khớp</string>
+    <string name="error_name_required">Vui lòng nhập họ tên</string>
+    <string name="error_login_failed">Đăng nhập thất bại</string>
+    <string name="error_register_failed">Đăng ký thất bại</string>
+    
+    <!-- Profile -->
+    <string name="profile">Hồ sơ</string>
+    <string name="edit_profile">Chỉnh sửa hồ sơ</string>
+    <string name="headline">Tiêu đề</string>
+    <string name="about">Giới thiệu</string>
+    <string name="skills">Kỹ năng</string>
+    <string name="add_skill">Thêm kỹ năng</string>
+    <string name="experience">Kinh nghiệm</string>
+    <string name="add_experience">Thêm kinh nghiệm</string>
+    <string name="education">Học vấn</string>
+    <string name="add_education">Thêm học vấn</string>
+    <string name="company">Công ty</string>
+    <string name="position">Vị trí</string>
+    <string name="school">Trường</string>
+    <string name="degree">Bằng cấp</string>
+    <string name="start_date">Ngày bắt đầu</string>
+    <string name="end_date">Ngày kết thúc</string>
+    <string name="present">Hiện tại</string>
+    <string name="description">Mô tả</string>
+    
+    <!-- Home / Social Feed -->
+    <string name="home">Trang chủ</string>
+    <string name="create_post">Tạo bài viết</string>
+    <string name="whats_on_your_mind">Bạn đang nghĩ gì?</string>
+    <string name="post">Đăng</string>
+    <string name="like">Thích</string>
+    <string name="comment">Bình luận</string>
+    <string name="share">Chia sẻ</string>
+    <string name="comments">Bình luận</string>
+    <string name="write_comment">Viết bình luận...</string>
+    <string name="likes">lượt thích</string>
+    <string name="no_posts">Chưa có bài viết nào</string>
+    
+    <!-- Jobs -->
+    <string name="jobs">Việc làm</string>
+    <string name="job_detail">Chi tiết công việc</string>
+    <string name="apply_now">Ứng tuyển ngay</string>
+    <string name="applied">Đã ứng tuyển</string>
+    <string name="salary">Mức lương</string>
+    <string name="location">Địa điểm</string>
+    <string name="requirements">Yêu cầu</string>
+    <string name="job_description">Mô tả công việc</string>
+    <string name="no_jobs">Chưa có việc làm nào</string>
+    <string name="search_jobs">Tìm kiếm việc làm</string>
+    <string name="apply">Ứng tuyển</string>
+    
+    <!-- Roadmap -->
+    <string name="roadmap">Lộ trình</string>
+    <string name="target_role">Vị trí mục tiêu</string>
+    <string name="add_step">Thêm bước</string>
+    <string name="step_title">Tiêu đề bước</string>
+    <string name="step_description">Mô tả bước</string>
+    <string name="mark_complete">Đánh dấu hoàn thành</string>
+    <string name="progress">Tiến độ</string>
+    <string name="no_roadmap">Chưa có lộ trình nào</string>
+    
+    <!-- HR - Job Management -->
+    <string name="job_management">Quản lý việc làm</string>
+    <string name="create_job">Tạo việc làm</string>
+    <string name="edit_job">Sửa việc làm</string>
+    <string name="job_title">Tiêu đề công việc</string>
+    <string name="job_status">Trạng thái</string>
+    <string name="status_open">Đang mở</string>
+    <string name="status_closed">Đã đóng</string>
+    <string name="no_hr_jobs">Bạn chưa tạo việc làm nào</string>
+    
+    <!-- HR - Applicant Management -->
+    <string name="applicants">Ứng viên</string>
+    <string name="applicant_detail">Chi tiết ứng viên</string>
+    <string name="view_cv">Xem CV</string>
+    <string name="shortlist">Đưa vào danh sách ngắn</string>
+    <string name="reject">Từ chối</string>
+    <string name="status_pending">Chờ xử lý</string>
+    <string name="status_shortlisted">Đã chọn</string>
+    <string name="status_rejected">Đã từ chối</string>
+    <string name="no_applicants">Chưa có ứng viên nào</string>
+    <string name="applied_on">Ứng tuyển ngày</string>
+    
+    <!-- HR - Analytics -->
+    <string name="analytics">Thống kê</string>
+    <string name="total_jobs">Tổng việc làm</string>
+    <string name="total_applications">Tổng đơn ứng tuyển</string>
+    <string name="total_views">Tổng lượt xem</string>
+    <string name="pending_applications">Đơn chờ xử lý</string>
+    <string name="shortlisted_applications">Đơn đã chọn</string>
+    <string name="rejected_applications">Đơn đã từ chối</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="nav_profile">Hồ sơ</string>
+    <string name="nav_home">Cộng đồng</string>
+    <string name="nav_jobs">Việc làm</string>
+    <string name="nav_roadmap">Lộ trình</string>
+    <string name="nav_analytics">Thống kê</string>
+    <string name="nav_applicants">Ứng viên</string>
+</resources>

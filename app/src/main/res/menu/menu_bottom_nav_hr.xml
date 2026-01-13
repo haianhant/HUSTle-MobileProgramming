@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/hrJobsFragment"
+        android:icon="@drawable/ic_work"
+        android:title="@string/nav_jobs" />
+    <item
+        android:id="@+id/applicantsFragment"
+        android:icon="@drawable/ic_people"
+        android:title="@string/nav_applicants" />
+    <item
+        android:id="@+id/analyticsFragment"
+        android:icon="@drawable/ic_analytics"
+        android:title="@string/nav_analytics" />
+</menu>

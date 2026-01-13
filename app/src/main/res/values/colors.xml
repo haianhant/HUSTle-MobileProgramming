@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- HUSTle Brand Colors -->
+    <color name="primary">#B44040</color>
+    <color name="primary_dark">#8C3030</color>
+    <color name="primary_light">#D46666</color>
+    <color name="primary_variant">#933333</color>
+    
+    <!-- Backgrounds -->
+    <color name="background">#FFFFFF</color>
+    <color name="background_secondary">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F8F8F8</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    <color name="error">#F44336</color>
+    <color name="info">#2196F3</color>
+    
+    <!-- Card & Divider -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="ripple">#20B44040</color>
+    
+    <!-- Application Status -->
+    <color name="status_pending">#FF9800</color>
+    <color name="status_shortlisted">#4CAF50</color>
+    <color name="status_rejected">#F44336</color>
+    
+    <!-- Job Status -->
+    <color name="status_open">#4CAF50</color>
+    <color name="status_closed">#9E9E9E</color>
+    
+    <!-- Legacy -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

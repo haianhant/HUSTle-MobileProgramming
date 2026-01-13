@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    
+    <!-- Background -->
+    <path
+        android:fillColor="#F5F5F5"
+        android:pathData="M0,0h100v100h-100z" />
+    
+    <!-- Image icon -->
+    <path
+        android:fillColor="#BDBDBD"
+        android:pathData="M30,35h40v30h-40z" />
+    
+    <!-- Mountain -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M35,60 L50,45 L65,60 Z" />
+    
+    <!-- Sun -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M60,42m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+</vector>

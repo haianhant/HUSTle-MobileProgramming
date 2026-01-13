@@ -1,0 +1,89 @@
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:generateDebugResValues
+> Task :app:dataBindingMergeDependencyArtifactsDebug
+> Task :app:generateDebugResources
+
+> Task :app:packageDebugResources
+line 1:24 token recognition error at: ''Ch'
+line 1:31 token recognition error at: 'ó'
+line 1:35 token recognition error at: 'ô'
+line 1:53 token recognition error at: '''
+
+> Task :app:dataBindingTriggerDebug
+> Task :app:parseDebugLocalResources
+> Task :app:generateSafeArgsDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+
+> Task :app:mergeDebugResources
+line 1:24 token recognition error at: ''Ch'
+line 1:31 token recognition error at: 'ó'
+line 1:35 token recognition error at: 'ô'
+line 1:53 token recognition error at: '''
+
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:javaPreCompileDebug
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJniLibFolders
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug
+> Task :app:checkDebugDuplicateClasses
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeLibDexDebug
+> Task :app:dataBindingGenBaseClassesDebug
+> Task :app:mergeExtDexDebug
+> Task :app:processDebugResources
+> Task :app:kspDebugKotlin
+> Task :app:compileDebugKotlin
+
+> Task :app:compileDebugJavaWithJavac
+line 1:24 token recognition error at: ''Ch'
+line 1:31 token recognition error at: 'ó'
+D:\Documents\HustleApp\app\build\generated\ap_generated_sources\debug\out\com\example\hustleapp\DataBinderMapperImpl.java:24: error: cannot find symbol
+import com.example.hustleapp.databinding.FragmentProfileBindingImpl;
+                                        ^
+  symbol:   class FragmentProfileBindingImpl
+  location: package com.example.hustleapp.databinding
+D:\Documents\HustleApp\app\build\generated\ap_generated_sources\debug\out\com\example\hustleapp\DataBinderMapperImpl.java:25: error: cannot find symbol
+import com.example.hustleapp.databinding.FragmentRegisterBindingImpl;
+                                        ^
+  symbol:   class FragmentRegisterBindingImpl
+  location: package com.example.hustleapp.databinding
+
+> Task :app:compileDebugJavaWithJavac FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugJavaWithJavac'.
+> android.databinding.tool.util.LoggedErrorException: Found data binding error(s):
+  
+  ERROR: Syntax error: mismatched input 'c' expecting {<EOF>, ',', '.', '::', '[', '+', '-', '*', '/', '%', '<<', '>>>', '>>', '<=', '>=', '>', '<', 'instanceof', '==', '!=', '&', '^', '|', '&&', '||', '?', '??'} file://app\src\main\res\layout\fragment_profile.xml Line:137
+  ERROR: The expression 'viewModelName.getValue()' cannot be inverted, so it cannot be used in a two-way binding
+  
+  Details: There is no inverse for method getValue, you must add an @InverseMethod annotation to the method to indicate which method should be used when using it in two-way binding expressions file://app\src\main\res\layout\fragment_register.xml Line:126
+
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 20s
+33 actionable tasks: 33 executed
