@@ -105,4 +105,12 @@ class JobRepository(
     suspend fun getApplicationCountByJob(jobId: Long): Int {
         return applicationDao.getApplicationCountByJob(jobId)
     }
+    
+    fun getAllApplicationsByHr(hrUserId: Long): LiveData<List<Application>> {
+        return applicationDao.getAllApplicationsByHr(hrUserId)
+    }
+    
+    suspend fun getApplicationByJobAndUser(jobId: Long, userId: Long): Application? {
+        return applicationDao.getApplicationByJobAndApplicant(jobId, userId)
+    }
 }

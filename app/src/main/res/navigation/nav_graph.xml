@@ -141,6 +141,9 @@
             <argument
                 android:name="jobId"
                 app:argType="long" />
+            <action
+                android:id="@+id/action_jobApplicants_to_applicantDetail"
+                app:destination="@id/applicantDetailFragment" />
         </fragment>
     </navigation>
 

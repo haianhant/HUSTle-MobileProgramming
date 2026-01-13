@@ -74,6 +74,10 @@ class JobsViewModel : ViewModel() {
         return jobRepository.hasApplied(jobId, sessionManager.getUserId())
     }
     
+    suspend fun getApplication(jobId: Long): Application? {
+        return jobRepository.getApplicationByJobAndUser(jobId, sessionManager.getUserId())
+    }
+    
     fun incrementJobView(jobId: Long) {
         viewModelScope.launch {
             try {

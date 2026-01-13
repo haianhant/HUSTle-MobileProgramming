@@ -1,0 +1,58 @@
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
+
+This Android Gradle plugin (8.7.3) was tested up to compileSdk = 35.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 36.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 36 is available.
+
+For more information refer to the compatibility table:
+https://d.android.com/r/tools/api-level-support
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=36
+to this project's gradle.properties.
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:dataBindingGenBaseClassesDebug UP-TO-DATE
+> Task :app:dataBindingTriggerDebug UP-TO-DATE
+> Task :app:generateSafeArgsDebug UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:kspDebugKotlin UP-TO-DATE
+> Task :app:kaptGenerateStubsDebugKotlin UP-TO-DATE
+
+> Task :app:kaptDebugKotlin
+warning: Binding adapter AK(android.widget.ImageView, java.lang.String) already exists for imageUrl! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#loadImage with com.example.hustleapp.utils.BindingAdapters#loadImage
+warning: Binding adapter AK(android.widget.ImageView, java.lang.String) already exists for imageUrl! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#loadImage with com.example.hustleapp.utils.BindingAdapters#loadImage
+warning: Binding adapter AK(android.widget.ImageView, java.lang.String) already exists for avatarUrl! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#loadAvatar with com.example.hustleapp.utils.BindingAdapters#loadAvatar
+warning: Binding adapter AK(android.widget.ImageView, java.lang.String) already exists for avatarUrl! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#loadAvatar with com.example.hustleapp.utils.BindingAdapters#loadAvatar
+warning: Binding adapter AK(android.widget.TextView, java.lang.Long) already exists for timeAgo! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#setTimeAgo with com.example.hustleapp.utils.BindingAdapters#setTimeAgo
+warning: Binding adapter AK(android.widget.TextView, java.lang.Long) already exists for timeAgo! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#setTimeAgo with com.example.hustleapp.utils.BindingAdapters#setTimeAgo
+warning: Binding adapter AK(android.widget.TextView, java.lang.Long) already exists for formattedDate! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#setFormattedDate with com.example.hustleapp.utils.BindingAdapters#setFormattedDate
+warning: Binding adapter AK(android.widget.TextView, java.lang.Long) already exists for formattedDate! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#setFormattedDate with com.example.hustleapp.utils.BindingAdapters#setFormattedDate
+warning: Binding adapter AK(android.view.View, boolean) already exists for visibleOrGone! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#setVisibleOrGone with com.example.hustleapp.utils.BindingAdapters#setVisibleOrGone
+warning: Binding adapter AK(android.view.View, boolean) already exists for visibleOrGone! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#setVisibleOrGone with com.example.hustleapp.utils.BindingAdapters#setVisibleOrGone
+warning: Binding adapter AK(android.view.View, boolean) already exists for visibleOrInvisible! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#setVisibleOrInvisible with com.example.hustleapp.utils.BindingAdapters#setVisibleOrInvisible
+warning: Binding adapter AK(android.view.View, boolean) already exists for visibleOrInvisible! Overriding com.example.hustleapp.utils.BindingAdapters.Companion#setVisibleOrInvisible with com.example.hustleapp.utils.BindingAdapters#setVisibleOrInvisible
+
+> Task :app:compileDebugKotlin
+w: file:///D:/Documents/HustleApp/app/src/main/java/com/example/hustleapp/utils/DateUtils.kt:13:67 'constructor(p0: String!, p1: String!): Locale' is deprecated. Deprecated in Java.
+
+BUILD SUCCESSFUL in 12s
+21 actionable tasks: 2 executed, 19 up-to-date

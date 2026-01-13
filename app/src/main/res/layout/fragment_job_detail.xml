@@ -158,6 +158,44 @@
                     android:textSize="@dimen/text_size_md"
                     tools:text="- Yêu cầu 1\n- Yêu cầu 2" />
 
+                <!-- Application Status Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardApplicationStatus"
+                    style="@style/Widget.HUSTle.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xl"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/spacing_md">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Trạng thái ứng tuyển:"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/text_size_md" />
+
+                        <TextView
+                            android:id="@+id/tvApplicationStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_input_rounded"
+                            android:paddingHorizontal="@dimen/spacing_sm"
+                            android:paddingVertical="@dimen/spacing_xs"
+                            android:text="Chờ xử lý"
+                            android:textColor="@color/status_pending"
+                            android:textSize="@dimen/text_size_md"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
                 <!-- Spacer for button -->
                 <View
                     android:layout_width="match_parent"

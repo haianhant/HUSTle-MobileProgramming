@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.hustleapp.HUSTleApplication
 import com.example.hustleapp.R
+import com.example.hustleapp.data.local.entity.ApplicationStatus
 import com.example.hustleapp.databinding.FragmentJobDetailBinding
 import kotlinx.coroutines.launch
 
@@ -55,15 +56,52 @@ class JobDetailFragment : Fragment() {
                 binding.tvRequirements.text = it.requirements
             }
             
-            // Check if already applied
-            val hasApplied = viewModel.hasApplied(args.jobId)
-            binding.btnApply.isEnabled = !hasApplied
-            binding.btnApply.text = if (hasApplied) "Đã ứng tuyển" else getString(R.string.apply)
+            // Check application status
+            loadApplicationStatus()
+        }
+    }
+    
+    private suspend fun loadApplicationStatus() {
+        val hasApplied = viewModel.hasApplied(args.jobId)
+        
+        if (hasApplied) {
+            binding.btnApply.isEnabled = false
+            binding.btnApply.text = "Đã ứng tuyển"
+            
+            // Get application status
+            val application = viewModel.getApplication(args.jobId)
+            application?.let { app ->
+                binding.cardApplicationStatus.visibility = View.VISIBLE
+                updateStatusUI(app.status)
+            }
+        } else {
+            binding.btnApply.isEnabled = true
+            binding.btnApply.text = getString(R.string.apply)
+            binding.cardApplicationStatus.visibility = View.GONE
+        }
+    }
+    
+    private fun updateStatusUI(status: ApplicationStatus) {
+        when (status) {
+            ApplicationStatus.PENDING -> {
+                binding.tvApplicationStatus.text = "Chờ xử lý"
+                binding.tvApplicationStatus.setTextColor(requireContext().getColor(R.color.status_pending))
+            }
+            ApplicationStatus.SHORTLISTED -> {
+                binding.tvApplicationStatus.text = "Đã được chọn"
+                binding.tvApplicationStatus.setTextColor(requireContext().getColor(R.color.status_shortlisted))
+            }
+            ApplicationStatus.REJECTED -> {
+                binding.tvApplicationStatus.text = "Đã bị từ chối"
+                binding.tvApplicationStatus.setTextColor(requireContext().getColor(R.color.status_rejected))
+            }
         }
     }
     
     private fun setupListeners() {
         binding.btnBack.setOnClickListener {
+            // Set result so parent knows to show jobs tab
+            parentFragmentManager.setFragmentResult("back_to_jobs", Bundle())
             findNavController().navigateUp()
         }
         
@@ -80,6 +118,9 @@ class JobDetailFragment : Fragment() {
                 if (it.contains("thành công")) {
                     binding.btnApply.isEnabled = false
                     binding.btnApply.text = "Đã ứng tuyển"
+                    // Show pending status
+                    binding.cardApplicationStatus.visibility = View.VISIBLE
+                    updateStatusUI(ApplicationStatus.PENDING)
                 }
             }
         }
@@ -90,3 +131,4 @@ class JobDetailFragment : Fragment() {
         _binding = null
     }
 }
+

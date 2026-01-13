@@ -56,7 +56,9 @@ class CreatePostFragment : Fragment() {
             message?.let {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
                 viewModel.clearMessage()
-                if (it.contains("thành công")) {
+                if (it.contains("Đã đăng")) {
+                    // Set result so parent knows to show community tab
+                    parentFragmentManager.setFragmentResult("post_created", Bundle())
                     findNavController().navigateUp()
                 }
             }

@@ -3,10 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.hustleapp.ui.applicant.roadmap.RoadmapViewModel" />
+        <import type="android.view.View" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_secondary">
+        android:background="@color/background">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -17,137 +24,260 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/roadmap"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_xl"
+                        android:textStyle="bold" />
+
+                    <!-- Reset button (only visible when roadmap is shown) -->
+                    <ImageButton
+                        android:id="@+id/btnReset"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="@dimen/spacing_sm"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Reset"
+                        android:src="@drawable/ic_add"
+                        android:visibility="@{viewModel.showInputForm ? View.GONE : View.VISIBLE}"
+                        app:tint="@color/primary" />
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Loading Overlay -->
+        <FrameLayout
+            android:id="@+id/loadingOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80FFFFFF"
+            android:clickable="true"
+            android:elevation="10dp"
+            android:focusable="true"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:indeterminateTint="@color/primary" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/roadmap"
+                    android:layout_marginTop="@dimen/spacing_md"
+                    android:text="Đang tạo lộ trình..."
                     android:textColor="@color/text_primary"
-                    android:textSize="@dimen/text_size_xl"
-                    android:textStyle="bold" />
-            </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+                    android:textSize="@dimen/text_size_lg" />
+            </LinearLayout>
+        </FrameLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/spacing_md">
+                android:layout_height="wrap_content">
 
-                <!-- Target Role Card -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.HUSTle.CardView"
+                <!-- Input Form -->
+                <LinearLayout
+                    android:id="@+id/inputForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/spacing_md">
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_lg"
+                    android:visibility="@{viewModel.showInputForm ? View.VISIBLE : View.GONE}">
 
-                    <LinearLayout
+                    <!-- Header Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.HUSTle.CardView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/spacing_md">
+                        android:layout_marginBottom="@dimen/spacing_lg"
+                        app:cardBackgroundColor="@color/primary">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/target_role"
-                            android:textColor="@color/text_primary"
-                            android:textSize="@dimen/text_size_lg"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvTargetRole"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_sm"
-                            android:text="Senior Android Developer"
-                            android:textColor="@color/primary"
-                            android:textSize="@dimen/text_size_xl"
-                            android:textStyle="bold" />
-
-                        <!-- Progress -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_md"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_lg">
 
-                            <ProgressBar
-                                android:id="@+id/progressBar"
-                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                                android:layout_width="0dp"
-                                android:layout_height="8dp"
-                                android:layout_weight="1"
-                                android:progress="40"
-                                android:progressBackgroundTint="@color/divider"
-                                android:progressTint="@color/primary" />
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/ic_roadmap"
+                                app:tint="@color/white" />
 
                             <TextView
-                                android:id="@+id/tvProgress"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/spacing_sm"
-                                android:text="2/5"
-                                android:textColor="@color/text_secondary"
+                                android:layout_marginTop="@dimen/spacing_md"
+                                android:text="Tạo Lộ Trình AI"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_xxl"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_xs"
+                                android:gravity="center"
+                                android:text="Gemini AI sẽ tạo lộ trình phát triển\nsự nghiệp phù hợp với bạn"
+                                android:textColor="#DDDDDD"
                                 android:textSize="@dimen/text_size_md" />
                         </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Roadmap Steps -->
-                <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.HUSTle.CardView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
+                    <!-- Current Role Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.HUSTle.TextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/spacing_md">
+                        android:hint="Vị trí hiện tại của bạn *"
+                        app:helperText="Ví dụ: Junior Developer, Sinh viên CNTT"
+                        app:helperTextEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCurrentRole"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:text="@={viewModel.currentRole}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Target Role Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.HUSTle.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:hint="Vị trí mục tiêu *"
+                        app:helperText="Ví dụ: Senior Android Developer, Tech Lead"
+                        app:helperTextEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etTargetRole"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:text="@={viewModel.targetRole}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Current Skills Input -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.HUSTle.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:hint="Kỹ năng hiện có"
+                        app:helperText="Ví dụ: Java, Kotlin, Git, SQL"
+                        app:helperTextEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCurrentSkills"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:text="@={viewModel.currentSkills}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Years of Experience -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.HUSTle.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:hint="Số năm kinh nghiệm"
+                        app:helperText="Nhập 0 nếu mới bắt đầu"
+                        app:helperTextEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etYearsExperience"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Generate Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGenerate"
+                        style="@style/Widget.HUSTle.Button.Primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="@dimen/spacing_xl"
+                        android:text="✨ Tạo Lộ Trình với AI"
+                        android:textSize="@dimen/text_size_lg" />
+
+                </LinearLayout>
+
+                <!-- Flowchart Result -->
+                <LinearLayout
+                    android:id="@+id/resultContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.showInputForm ? View.GONE : View.VISIBLE}">
+
+                    <!-- Summary Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.HUSTle.CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_md">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_md">
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Các bước thực hiện"
-                                android:textColor="@color/text_primary"
+                                android:text="Lộ trình cho bạn"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="@dimen/text_size_sm" />
+
+                            <TextView
+                                android:id="@+id/tvTargetRoleResult"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.currentRole + ` → ` + viewModel.targetRole}"
+                                android:textColor="@color/primary"
                                 android:textSize="@dimen/text_size_lg"
-                                android:textStyle="bold" />
-
-                            <ImageButton
-                                android:id="@+id/btnAddStep"
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:contentDescription="Add step"
-                                android:src="@drawable/ic_add"
-                                app:tint="@color/primary" />
+                                android:textStyle="bold"
+                                tools:text="Junior → Senior Developer" />
                         </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rvSteps"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_sm"
-                            android:nestedScrollingEnabled="false"
-                            tools:itemCount="5" />
+                    <!-- Flowchart -->
+                    <com.example.hustleapp.ui.components.FlowchartView
+                        android:id="@+id/flowchartView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing_sm" />
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

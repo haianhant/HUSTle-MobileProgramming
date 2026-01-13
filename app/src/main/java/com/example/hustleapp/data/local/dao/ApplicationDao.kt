@@ -46,4 +46,7 @@ interface ApplicationDao {
     
     @Query("SELECT COUNT(*) FROM applications WHERE jobId = :jobId AND status = :status")
     suspend fun getApplicationCountByJobAndStatus(jobId: Long, status: ApplicationStatus): Int
+    
+    @Query("SELECT * FROM applications WHERE jobId IN (SELECT id FROM jobs WHERE hrUserId = :hrUserId) ORDER BY appliedAt DESC")
+    fun getAllApplicationsByHr(hrUserId: Long): LiveData<List<Application>>
 }

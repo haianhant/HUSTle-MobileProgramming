@@ -77,7 +77,7 @@
                 android:layout_marginStart="@dimen/spacing_sm"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Send"
-                android:src="@drawable/ic_share"
+                android:src="@drawable/ic_send"
                 app:tint="@color/primary" />
         </LinearLayout>
 

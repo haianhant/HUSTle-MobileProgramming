@@ -36,10 +36,28 @@ class ApplicantMainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         
         setupBottomNavigation()
+        setupFragmentResultListener()
         
         // Show default fragment
         if (savedInstanceState == null) {
             showFragment(ProfileFragment())
+        }
+    }
+    
+    private fun setupFragmentResultListener() {
+        // Listen for post created result to switch to community tab
+        parentFragmentManager.setFragmentResultListener("post_created", viewLifecycleOwner) { _, _ ->
+            binding.bottomNavigation.selectedItemId = R.id.homeFragment
+        }
+        
+        // Listen for back from comments to switch to community tab
+        parentFragmentManager.setFragmentResultListener("back_to_community", viewLifecycleOwner) { _, _ ->
+            binding.bottomNavigation.selectedItemId = R.id.homeFragment
+        }
+        
+        // Listen for back from job detail to switch to jobs tab
+        parentFragmentManager.setFragmentResultListener("back_to_jobs", viewLifecycleOwner) { _, _ ->
+            binding.bottomNavigation.selectedItemId = R.id.jobsFragment
         }
     }
     
