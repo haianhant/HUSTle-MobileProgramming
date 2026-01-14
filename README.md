@@ -157,22 +157,6 @@
 
 ---
 
-## 📂 Cấu trúc Database
-
-```mermaid
-erDiagram
-    User ||--o{ Post : creates
-    User ||--o{ Experience : has
-    User ||--o{ Education : has
-    User ||--o{ Skill : has
-    User ||--o{ JobApplication : submits
-    Job ||--o{ JobApplication : receives
-    Post ||--o{ PostLike : has
-    Post ||--o{ Comment : has
-```
-
----
-
 ## 👨‍💻 Tác giả
 
 <table>
