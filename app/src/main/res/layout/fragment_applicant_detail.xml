@@ -45,6 +45,7 @@
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_lg">
 
+                <!-- Basic Info -->
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
@@ -53,6 +54,15 @@
                     android:textColor="@color/text_primary"
                     android:textSize="@dimen/text_size_xxl"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvHeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_size_md"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/tvEmail"
@@ -75,7 +85,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:layout_marginTop="@dimen/spacing_md"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -99,6 +109,105 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
+                <!-- About Section -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardAbout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Giới thiệu"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_lg"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvAbout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_sm"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/text_size_md" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Skills Section -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardSkills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_md"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kỹ năng"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_lg"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chipGroupSkills"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_sm" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Experience Section -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardExperience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_md"
+                    android:visibility="gone"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kinh nghiệm"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_lg"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutExperiences"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_sm"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
@@ -120,6 +229,7 @@
                 android:layout_weight="1"
                 android:text="Từ chối"
                 android:textColor="@color/status_rejected"
+                app:cornerRadius="24dp"
                 app:strokeColor="@color/status_rejected" />
 
             <com.google.android.material.button.MaterialButton
@@ -129,7 +239,8 @@
                 android:layout_marginStart="@dimen/spacing_sm"
                 android:layout_weight="1"
                 android:backgroundTint="@color/status_shortlisted"
-                android:text="Chọn ứng viên" />
+                android:text="Chọn ứng viên"
+                app:cornerRadius="24dp" />
         </LinearLayout>
 
     </LinearLayout>

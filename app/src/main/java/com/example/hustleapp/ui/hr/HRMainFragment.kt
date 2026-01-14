@@ -35,10 +35,18 @@ class HRMainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         
         setupBottomNavigation()
+        setupFragmentResultListener()
         
         // Show default fragment
         if (savedInstanceState == null) {
             showFragment(HRJobsFragment())
+        }
+    }
+    
+    private fun setupFragmentResultListener() {
+        // Listen for back from applicant detail to switch to applicants tab
+        parentFragmentManager.setFragmentResultListener("back_to_applicants", viewLifecycleOwner) { _, _ ->
+            binding.bottomNavigation.selectedItemId = R.id.applicantsFragment
         }
     }
     

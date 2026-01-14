@@ -1,6 +1,7 @@
 package com.example.hustleapp.data.remote
 
 import android.util.Log
+import com.example.hustleapp.BuildConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType
@@ -29,8 +30,8 @@ class GeminiService {
     
     companion object {
         private const val TAG = "GeminiService"
-        private const val API_KEY = "AIzaSyDVeSpqCuoVIrUq-5bt0P4_eN8nISAyQCc"
-        // Try different model names if one fails
+        // API key được lấy từ BuildConfig (đọc từ local.properties)
+        private val API_KEY = BuildConfig.GEMINI_API_KEY
         private const val BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
     }
     

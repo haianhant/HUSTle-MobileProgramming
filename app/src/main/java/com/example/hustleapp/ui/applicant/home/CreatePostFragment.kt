@@ -38,6 +38,8 @@ class CreatePostFragment : Fragment() {
     
     private fun setupListeners() {
         binding.btnBack.setOnClickListener {
+            // Set result so parent knows to show community tab when going back
+            parentFragmentManager.setFragmentResult("back_to_community", Bundle())
             findNavController().navigateUp()
         }
         

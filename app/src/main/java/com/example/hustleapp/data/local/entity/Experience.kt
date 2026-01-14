@@ -6,7 +6,15 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
- * Experience entity for user's work history
+ * Entity Experience - Đại diện cho bảng "experiences" trong Room Database
+ * Lưu trữ kinh nghiệm làm việc của người dùng (Applicant)
+ * 
+ * Mục đích:
+ * - Thể hiện lịch sử công việc của ứng viên
+ * - Hiển thị trên profile cho HR xem khi đánh giá ứng viên
+ * 
+ * Mối quan hệ:
+ * - Một User có thể có nhiều Experience (1-N)
  */
 @Entity(
     tableName = "experiences",
@@ -15,18 +23,18 @@ import androidx.room.PrimaryKey
             entity = User::class,
             parentColumns = ["id"],
             childColumns = ["userId"],
-            onDelete = ForeignKey.CASCADE
+            onDelete = ForeignKey.CASCADE  // Xóa User sẽ xóa tất cả kinh nghiệm
         )
     ],
-    indices = [Index("userId")]
+    indices = [Index("userId")]  // Index để tăng tốc truy vấn
 )
 data class Experience(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    val userId: Long,
-    val title: String,
-    val company: String,
-    val startDate: Long,
-    val endDate: Long? = null, // null means "Present"
-    val description: String? = null
+    val id: Long = 0,                   // ID kinh nghiệm (tự động tăng)
+    val userId: Long,                   // ID người dùng sở hữu (khóa ngoại)
+    val title: String,                  // Chức danh công việc
+    val company: String,                // Tên công ty
+    val startDate: Long,                // Ngày bắt đầu (timestamp)
+    val endDate: Long? = null,          // Ngày kết thúc (null = đang làm việc)
+    val description: String? = null     // Mô tả công việc chi tiết
 )

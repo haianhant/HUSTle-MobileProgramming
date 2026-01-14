@@ -6,7 +6,15 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
- * Education entity for user's educational background
+ * Entity Education - Đại diện cho bảng "education" trong Room Database
+ * Lưu trữ thông tin học vấn của người dùng (Applicant)
+ * 
+ * Mục đích:
+ * - Thể hiện trình độ học vấn của ứng viên
+ * - Hiển thị trên profile cho HR đánh giá nền tảng học vấn
+ * 
+ * Mối quan hệ:
+ * - Một User có thể có nhiều Education (1-N)
  */
 @Entity(
     tableName = "education",
@@ -15,18 +23,18 @@ import androidx.room.PrimaryKey
             entity = User::class,
             parentColumns = ["id"],
             childColumns = ["userId"],
-            onDelete = ForeignKey.CASCADE
+            onDelete = ForeignKey.CASCADE  // Xóa User sẽ xóa tất cả học vấn
         )
     ],
-    indices = [Index("userId")]
+    indices = [Index("userId")]  // Index để tăng tốc truy vấn
 )
 data class Education(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    val userId: Long,
-    val degree: String,
-    val school: String,
-    val startDate: Long,
-    val endDate: Long? = null,
-    val description: String? = null
+    val id: Long = 0,                   // ID học vấn (tự động tăng)
+    val userId: Long,                   // ID người dùng sở hữu (khóa ngoại)
+    val degree: String,                 // Bằng cấp (VD: "Cử nhân Khoa học Máy tính")
+    val school: String,                 // Tên trường học
+    val startDate: Long,                // Ngày bắt đầu học (timestamp)
+    val endDate: Long? = null,          // Ngày tốt nghiệp (null = đang học)
+    val description: String? = null     // Mô tả thêm về quá trình học
 )
